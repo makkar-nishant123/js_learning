@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<body this.resize()="test()">
+<script type="text/javascript">
+<!--This is single line comment -->
+/*
+This is a multi line commend
+The following command write output the text into the HTML code. -->
+*/
+setTimeout("console.log('Hello, sdfds!');",5000);
+document.cookie="a=abcd";
+document.cookie="b=abcd";
+var decodedCookie = decodeURIComponent(document.cookie);
+var ca = decodedCookie.split(';');
+console.log(ca);
+for(var i = 0; i <ca.length; i++) {
+    var c = ca[i];
+    console.log(c)
+    while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+        console.log(c.substring(name.length, c.length));
+      
+    }
+}
+
+console.log("Nothing");
+
+</script>
+</body>
+</html>

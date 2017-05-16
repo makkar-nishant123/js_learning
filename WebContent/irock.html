@@ -1,0 +1,88 @@
+<html>
+<head>
+<title>iRock - The Virtual Pet Rock</title>
+
+<script type="text/javascript">
+
+function setCookie(userName) {
+  
+    document.cookie =  "Testing=" + userName ;
+}
+
+function checkCookie() {
+    var username = getCookie("Testing");
+    if (username != "") {
+        alert("Welcome again " + username);
+    } else {
+        username = prompt("Please enter your name:", "");
+        if (username != "" && username != null) {
+            setCookie("Testing", username, 365);
+        }
+    }
+}
+function getCookie(userName) {
+    var name = userName + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+	function touchRock() {
+		 var userName = prompt("What is your name ? ", "Enter your name here.");
+ 
+		 
+		 
+		if (userName){
+			alert("It is good to meet you, " + userName + ".");
+			setCookie(userName);
+			/* document.getElementById("rockImg").src = "irock/rock_happy.png";
+			setTimeout("document.getElementById('rockImg').src = 'irock/rock.png';",5000); */
+	}
+	/* 	else
+			{
+			
+			 if(userName)
+				 {alert("It is good to meet you, " + userName + ".");
+					writeCookie("U_Name",userName,65);
+				 }
+			} */
+	
+	}
+	
+	function resizeRock() {
+		 document.getElementById("rockImg").style.height = (document.body.clientHeight - 100) * 0.9;
+	}
+	function greet() {
+		var a = readCookie("irock_username");
+		alert("Nishant");
+	}
+	
+	function greetUser() {
+	    userName = readCookie("irock_username"); 
+	    if (userName)     
+	    	alert("Hello " + userName + ", I missed you.");  
+	    else     
+	    	alert('Hello, I am your pet rock.'); 
+	    }
+	
+	
+
+</script>
+</head>
+
+<body onload="resizeRock(),checkCookie()"; onresize="resizeRock()">
+	<div style="margin-top: 100px; text-align: center">
+		<img id="rockImg" src="irock/rock.png" alt="iRock"
+			style="cursor: pointer" onclick="touchRock()" />
+	</div>
+</body>
+</html>
